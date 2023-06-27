@@ -74,7 +74,7 @@ def compute_metric_between_directories(
         target_height, target_width = target.size
 
         height = min(pred_height, target_height)
-        width = min(pred_width, target_width)        
+        width = min(pred_width, target_width)
         pred = pred.resize((width, height))
         target = target.resize((width, height))
 
@@ -88,15 +88,13 @@ def compute_metric_between_directories(
     pred_set = np.concatenate(pred_set, axis=0)
     target_set = np.concatenate(target_set, axis=0)
 
+    # TODO: the code below should not be executed when evaluating other datasets
+    # TODO: make an additional post-processing script for Blender dataset.
     # make background white
     if pred_set.shape[-1] == 4:
-        alpha = pred_set[..., -1]
-        pred_set[alpha == 0.0, ...] = 1.0
-        pred_set = pred_set[..., :3]
+        pred_set = pred_set[..., :3] * pred_set[..., -1:] + (1.0 - pred_set[..., -1:])
     if target_set.shape[-1] == 4:
-        alpha = target_set[..., -1]
-        target_set[alpha == 0.0, ...] = 1.0
-        target_set = target_set[..., :3]
+        target_set = target_set[..., :3] * target_set[..., -1:] + (1.0 - target_set[..., -1:])
 
     # convert to torch.Tensor
     pred_set = torch.from_numpy(pred_set).permute(0, 3, 1, 2)
