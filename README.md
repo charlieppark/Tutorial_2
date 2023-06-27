@@ -195,12 +195,12 @@ After rendering images from the test view, use the script `evaluate.py` to compu
 python torch_nerf/runners/evaluate.py ${PRED_IMG_DIR} ./data/nerf_synthetic/lego/test
 ```
 
-### Task 4 (Optional) Train NeRF with Your Own Data
+### Task 6 (Optional) Train NeRF with Your Own Data
 
 Instead of using the provided dataset, capture your surrounding environment and use the data for training.
 [COLMAP](https://github.com/colmap/colmap) might be useful when computing the relative camera poses.
 
-### Task 5 (Optional) Extension to Follow-Ups
+### Task 7 (Optional) Extension to Follow-Ups
 
 Coming Soon.
 
