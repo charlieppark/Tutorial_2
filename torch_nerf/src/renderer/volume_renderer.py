@@ -57,11 +57,6 @@ class VolumeRenderer(object):
             num_batch=1 if num_ray_batch is None else num_ray_batch,
         )
 
-        ####
-        # TODO: Check whether the following line has impact on performance
-        # pixel_rgb = pixel_rgb + (1.0 - weights.sum(dim=-1, keepdim=True))
-        ####
-
         # =====================================================================
         # Memory-bandwidth intensive operations (must be done directly on GPUs)
         # =====================================================================

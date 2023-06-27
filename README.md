@@ -18,7 +18,7 @@ Compared with previous works on novel view synthesis, NeRF is a simple, yet powe
 As of today, the follow-up research aiming to scale and extend the idea to various tasks has become one of the largest stream in computer vision community thanks to its simplicity and versatility.
 
 This week, we will take a technical deep dive into NeRF to gain understanding of this ground-breaking approach which will help us navigate a broader landscape of the field.
-We strongly recommend you to check out the paper, together with [our brief summary](), before starting working on the tasks.
+We strongly recommend you to check out the paper, together with [our brief summary](https://www.notion.so/geometry-kaist/Tutorial-2-NeRF-Neural-Radiance-Field-ef0c1f3446434162a540e6afc7aeccc8?pvs=4), before starting working on the tasks.
 
 ## Project Structure
 This codebase is organized as the following directory tree. We only list the core components for brevity:
@@ -195,12 +195,12 @@ After rendering images from the test view, use the script `evaluate.py` to compu
 python torch_nerf/runners/evaluate.py ${PRED_IMG_DIR} ./data/nerf_synthetic/lego/test
 ```
 
-### Task 4 (Optional) Train NeRF with Your Own Data
+### Task 6 (Optional) Train NeRF with Your Own Data
 
 Instead of using the provided dataset, capture your surrounding environment and use the data for training.
 [COLMAP](https://github.com/colmap/colmap) might be useful when computing the relative camera poses.
 
-### Task 5 (Optional) Extension to Follow-Ups
+### Task 7 (Optional) Extension to Follow-Ups
 
 Coming Soon.
 
