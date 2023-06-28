@@ -67,9 +67,20 @@ torch_nerf
 ## Environment Setup
 
 We recommend configuring a virtual environment using `conda`.
-To create a `conda` environment and install dependencies, issue the following command:
+To create a `conda` environment, issue the following command:
 ```
-conda env create --file environment.yaml
+conda create --name nerf-tutorial python=3.8
+```
+This should create a basic environment with Python 3.8 installed.
+Next, install the dependencies using `pip`:
+```
+pip install -r requirements.txt
+```
+The remaining dependencies are the ones related to PyTorch and they can be installed with the command:
+```
+pip install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+pip install torchmetrics[image]
+pip install tensorboard
 ```
 
 To download the dataset for training, issue the following command:
