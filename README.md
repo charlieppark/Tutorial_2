@@ -190,10 +190,16 @@ For quantitative evaluation, render the trained scene again, **but from the test
 python torch_nerf/runners/render.py +log_dir=${PATH_TO_LOG_DIR} +render_test_views=True
 ```
 This will produce 200 images (in the case of synthetic dataset) held out during training.
-After rendering images from the test view, use the script `evaluate.py` to compute PSNR, LPIPS, and SSIM. For instance, to evaluate the implementation for `lego` scene:
+After rendering images from the test view, use the script `evaluate.py` to compute LPIPS, PSNR, and SSIM. For instance, to evaluate the implementation for `lego` scene:
 ```
 python torch_nerf/runners/evaluate.py ${PRED_IMG_DIR} ./data/nerf_synthetic/lego/test
 ```
+The metrics for `lego` scene are summarized in the following table.
+| Method | LPIPS (↓) | PSNR (↑) | SSIM (↑) |
+|---|---|---|---|
+| Paper | 0.050 | 32.54 | 0.96 |
+| Ours | 0.045 | 28.60 | 0.93 |
+| Success Cond. | 0.060 | 26.00 | 0.90 |
 
 ### Task 6 (Optional) Train NeRF with Your Own Data
 
