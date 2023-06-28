@@ -15,10 +15,10 @@ If you have any questions, feel free to reach us via Slack.
 
 The introduction of [Neural Radiance Fields (NeRF)](https://arxiv.org/abs/2003.08934) in 2020 was a huge milestone in image-based, neural rendering literature.
 Compared with previous works on novel view synthesis, NeRF is a simple, yet powerful idea that combines recently emerging neural implicit representations with traditional volume rendering techniques.
-As of today, the follow-up research aiming to scale and extend the idea to various tasks has become one of the largest stream in computer vision community thanks to its simplicity and versatility.
+As of today, the follow-up research aiming to scale and extend the idea to various tasks has become one of the largest streams in computer vision community thanks to its simplicity and versatility.
 
 This week, we will take a technical deep dive into NeRF to gain understanding of this ground-breaking approach which will help us navigate a broader landscape of the field.
-We strongly recommend you to check out the paper, together with [our brief summary](https://www.notion.so/geometry-kaist/Tutorial-2-NeRF-Neural-Radiance-Field-ef0c1f3446434162a540e6afc7aeccc8?pvs=4), before starting working on the tasks.
+We strongly recommend you to check out the paper, together with [our brief summary](https://www.notion.so/geometry-kaist/Tutorial-2-NeRF-Neural-Radiance-Field-ef0c1f3446434162a540e6afc7aeccc8?pvs=4), before working on the tasks.
 
 ## Project Structure
 This codebase is organized as the following directory tree. We only list the core components for brevity:
@@ -72,8 +72,9 @@ To create a `conda` environment, issue the following command:
 conda create --name nerf-tutorial python=3.8
 ```
 This should create a basic environment with Python 3.8 installed.
-Next, install the dependencies using `pip`:
+Next, activate the environment and install the dependencies using `pip`:
 ```
+conda activate nerf-tutorial
 pip install -r requirements.txt
 ```
 The remaining dependencies are the ones related to PyTorch and they can be installed with the command:
