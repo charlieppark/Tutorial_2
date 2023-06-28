@@ -152,5 +152,5 @@ cython_debug/
 # Hydra logs
 outputs
 
-# Data files
-data
+# Data
+data/*
