@@ -187,7 +187,7 @@ The definition of the positional encoding is as follows:
 \gamma (p) = \left( \sin \left( 2^0 p \right), \cos \left( 2^0 p \right), \cdots, \sin \left( 2^{L-1} \right), \cos \left( 2^{L-1} \right) \right),
 ```
 where $L$ is the number of sinusoidal frequencies. Note that $\pi$ in Eqn 4. of the paper is often omitted in practice.
-Refer to [the author's comment](https://github.com/bmild/nerf/issues/12) for details.
+It is also common to include the original data in the final encodings. Refer to [the author's comment](https://github.com/bmild/nerf/issues/12) for details.
 
 ### Task 5. Quantitative \& Quantitative Evaluation
 
