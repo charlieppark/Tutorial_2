@@ -52,6 +52,15 @@ class StratifiedSampler(RaySamplerBase):
     ) -> Float[torch.Tensor, "num_ray num_sample"]:
         """
         Performs uniform sampling of points along rays.
+        
+        Args:
+            ray_bundle: A ray bundle holding ray origins, directions, near and far bounds.
+            num_sample: The number of samples to be generated along each ray.
+        
+        Returns:
+            t_samples: The distance values sampled along rays. 
+                The values should lie in the range defined by the near and
+                far bounds of the ray bundle.
         """
 
         # TODO

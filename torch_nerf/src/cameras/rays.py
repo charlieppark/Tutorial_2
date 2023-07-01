@@ -72,6 +72,9 @@ class RaySamples:
     def compute_sample_coordinates(self) -> Float[torch.Tensor, "num_ray num_sample 3"]:
         """
         Computes coordinates of points sampled along rays in the ray bundle.
+
+        Returns:
+            coords: Coordinates of points sampled along rays in the ray bundle.
         """
         # TODO
         raise NotImplementedError("Task 2")
@@ -85,6 +88,11 @@ class RaySamples:
         Args:
             right_end: The value to be appended to the right end
                 when computing 1st order difference.
+
+        Returns:
+            deltas: Differences between adjacent t's.
+                When evaluating the delta for the farthest sample on a ray,
+                use the value of the argument 'right_end'.
         """
         # TODO
         # HINT: Look up to the documentation of torch.diff.

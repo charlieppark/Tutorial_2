@@ -29,6 +29,17 @@ class QuadratureIntegrator(IntegratorBase):
 
         For details on the quadrature rule, refer to 'Optical models for
         direct volume rendering (IEEE Transactions on Visualization and Computer Graphics 1995)'.
+
+        Args:
+            sigma: Density values sampled along rays.
+            radiance: Radiance values sampled along rays.
+            delta: Distance between adjacent samples along rays.
+
+        Returns:
+            rgbs: Pixel colors computed by evaluating the volume rendering equation.
+            weights: Weights used to determine the contribution of each sample to the final pixel color.
+                A weight at a sample point is defined as a product of transmittance and opacity,
+                where opacity (alpha) is defined as 1 - exp(-sigma * delta).
         """
         # TODO
         # HINT: Look up the documentation of 'torch.cumsum'.

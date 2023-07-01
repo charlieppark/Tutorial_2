@@ -179,8 +179,8 @@ T_i = \exp \left( - \sum_{j=1}^{i-1} \sigma_j \delta_j \right).
 $ torch_nerf/src/signal_encoder/positional_encoder.py
 ```
 
-Implement the body of function `_create_embedding_fn`.
-The function implements the positional encoding used to lift 3D position vectors and view direction vectors to 63 and 27 dimensional space, respectively.
+Implement the body of function `_create_embedding_fn` and `encode`.
+The functions implement the positional encoding used to lift 3D position vectors and view direction vectors to 63 and 27 dimensional space, respectively.
 The definition of the positional encoding is as follows:
 
 ```math

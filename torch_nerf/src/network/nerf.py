@@ -49,6 +49,14 @@ class NeRF(nn.Module):
 
         Given sample point coordinates and view directions,
         predict the corresponding radiance (RGB) and density (sigma).
+
+        Args:
+            pos: The positional encodings of sample points coordinates on rays.
+            view_dir: The positional encodings of ray directions.
+
+        Returns:
+            sigma: The density predictions evaluated at the given sample points.
+            radiance: The radiance predictions evaluated at the given sample points.
         """
 
         # TODO
