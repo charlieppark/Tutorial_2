@@ -189,13 +189,17 @@ The definition of the positional encoding is as follows:
 where $L$ is the number of sinusoidal frequencies. Note that $\pi$ in Eqn 4. of the paper is often omitted in practice.
 It is also common to include the original data in the final encodings. Refer to [the author's comment](https://github.com/bmild/nerf/issues/12) for details.
 
-### Task 5. Quantitative \& Quantitative Evaluation
+### Task 5. Qualitative \& Quantitative Evaluation
 
 For qualitative evaluation, render the trained scene with the provided script. 
 ```
 python torch_nerf/runners/render.py +log_dir=${LOG_DIR} +render_test_views=False
 ```
 This will produce a set of images rendered while orbiting around the upper hemisphere of an object.
+The rendered images can be compiled into a video using the script `scripts/utils/create_video.py`:
+```
+python scripts/utils/create_video.py --img_dir ${RENDERED_IMG_DIR} --vid_title ${VIDEO_TITLE}
+```
 
 For quantitative evaluation, render the trained scene again, **but from the test views**.
 ```
