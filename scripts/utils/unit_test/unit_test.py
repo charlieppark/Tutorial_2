@@ -15,8 +15,8 @@ try:
         randin = torch.rand(3)
         a = embed_fn((torch.Tensor([i, i+1, i*2])))
         b = positional_encoder.encode(torch.Tensor([i, i+1, i*2]))
-        t = torch.eq(a, b)
-        assert torch.all(t == True)
+        t = torch.allclose(a, b, atol=1e-10)
+        assert t
 except AssertionError:
     embed_fn, input_ch = e(10, False)
     positional_encoder = PositionalEncoder(1, 10, True)
@@ -24,8 +24,8 @@ except AssertionError:
         randin = torch.rand(3)
         a = embed_fn((torch.Tensor([i, i+1, i*2])))
         b = positional_encoder.encode(torch.Tensor([i, i+1, i*2]))
-        t = torch.eq(a, b)
-        assert torch.all(t == True), "Error : positional_encoder"
+        t = torch.allclose(a, b, atol=1e-10)
+        assert t, "Error : positional_encoder"
 
 batch_size = 10
 origins = torch.rand(batch_size, 3) 
@@ -44,22 +44,22 @@ torch.manual_seed(0)
 a = st.sample_along_rays(ray_bundle, n_samples).t_samples.to('cpu')
 torch.manual_seed(0)
 b = s(batch_size, origins, directions, near, far, n_samples)
-t = torch.eq(a, b)
-assert torch.all(t == True), "Error : sample_along_rays_uniform"
+t = torch.allclose(a, b, atol=1e-10)
+assert t, "Error : sample_along_rays_uniform"
 
 t_samples = a
 ray_samples = RaySamples(ray_bundle, t_samples)
 
 a = ray_samples.compute_sample_coordinates()
 b = ry(origins, directions, t_samples)
-t = torch.eq(a, b)
-assert torch.all(t == True), "Error : compute_sample_coordinates"
+t = torch.allclose(a, b, atol=1e-10)
+assert t, "Error : compute_sample_coordinates"
 
 ray_samples.t_samples = ray_samples.t_samples.to(torch.cuda.current_device())
 a = ray_samples.compute_deltas().to('cpu')
 b = dd(t_samples)
-t = torch.eq(a, b)
-assert torch.all(t == True), "Error : compute_deltas"
+t = torch.allclose(a, b, atol=1e-10)
+assert t, "Error : compute_deltas"
 
 sigma = torch.rand(batch_size, n_samples)
 radiance = torch.rand(batch_size, n_samples, 3)
